@@ -1,0 +1,63 @@
+<form class="form-horizontal" #profileForm="ngForm">
+
+	<h2>Informace o obci</h2>
+	<div class="form-group">
+		<label for="input-name" class="col-sm-2 control-label">Název obce</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="input-name" name="name" [(ngModel)]="profile.name" placeholder="Praha - Suchdol">
+		</div>
+	</div>
+
+	<h2>Data</h2>
+	<div class="form-group">
+		<label for="input-file" class="col-sm-2 control-label">Číselník akcí v CSV</label>
+		<div class="col-sm-10">
+			<input type="file" class="form-control" id="input-file" #eventsFile>
+			<br>
+			<table class="table table-condensed table-hover table-striped">
+				<thead>
+					<tr><th>Sloupec</th><th>Typ</th><th>Povinné?</th><th>Popis</th></tr>    
+				</thead>
+				<tbody>
+					<tr><td>srcId</td><td>text</td><td>Ano</td><td>Číslo akce</td></tr>
+					<tr><td>name</td><td>text</td><td>Ano</td><td>Název akce</td></tr>
+					<tr><td>description</td><td>text</td><td>Ne</td><td>Popis akce, co a proč bylo nakupováno atd.</td></tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="input-file" class="col-sm-2 control-label">Datový soubor v CSV</label>
+		<div class="col-sm-10">
+			<input type="file" class="form-control" id="input-file" #dataFile>
+			<br>
+			<table class="table table-condensed table-hover table-striped">
+				<thead>
+					<tr><th>Sloupec</th><th>Typ</th><th>Povinné?</th><th>Popis</th></tr>    
+				</thead>
+				<tbody>
+					<tr><td>type</td><td>ROZ/KDF/KOF/jiné nebo prázdné</td><td>Ano</td><td>Typ záznamu. ROZ = upravený rozpočet, KDF = došlá faktura, KOF = odešlá faktura, jiné nebo prázdné = ostatní záznamy</td></tr>
+					<tr><td>paragraph</td><td>číslo</td><td>Ano</td><td>Rozpočtový paragraf</td></tr>
+					<tr><td>item</td><td>číslo</td><td>Ano</td><td>Rozpočtová položka</td></tr>
+					<tr><td>event</td><td>číslo</td><td>Ne</td><td>Číslo akce dle číselníku</td></tr>
+					<tr><td>amount</td><td>částka</td><td>Ano</td><td>Částka v Kč</td></tr>
+					<tr><td>date</td><td>datum ve formátu YYYY-MM-DD</td><td>Ne</td><td>Datum, pouze u faktur</td></tr>
+					<tr><td>counterpartyId</td><td>text</td><td>Ne</td><td>IČO protistrany, pouze u faktur</td></tr>
+					<tr><td>counterpartyName</td><td>text</td><td>Ne</td><td>Jméno protistrany, pouze u faktur</td></tr>
+					<tr><td>description</td><td>text</td><td>Ne</td><td>Popis faktury, pouze u faktur</td></tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="input-file" class="col-sm-2 control-label"></label>
+		<div class="col-sm-10">
+			<button type="button" (click)="setData(eventsFile.files[0],dataFile.files[0])">Nahrát data</button>
+		</div>
+	</div>
+
+
+
+</form>
