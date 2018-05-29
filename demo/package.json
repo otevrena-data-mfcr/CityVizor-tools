@@ -6,9 +6,7 @@
   "repository": "otevrena-data-mfcr/CityVizor-demo",
   "main": "server/server.js",
   "scripts": {
-    "start": "ng serve --watch --aot --disable-host-check",
-    "build": "ng build --prod",
-    "dev": "ng serve --aot --disable-host-check --base-href /"
+    "start": "ng serve --watch --aot --disable-host-check"
   },
   "keywords": [
     "opendata",

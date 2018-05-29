@@ -1,0 +1,3 @@
+[submodule "CityVizor-tools-demo"]
+	path = CityVizor-tools-demo
+	url = https://github.com/CityVizor/CityVizor-tools-demo
